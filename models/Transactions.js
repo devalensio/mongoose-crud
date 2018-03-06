@@ -4,26 +4,29 @@ const Schema = mongoose.Schema
 const transactionSchema = new Schema({
  member: {
     type: Schema.Types.ObjectId,
-    ref: 'customers'
+    ref: 'Customers'
 },
  days: Number,
  out_date: {
    type: Date,
    default: Date.now
  },
- due_date: {
-    type: Date,
-    default: Date.now
-},
+
+ due_date: Date,
+
  in_date: {
     type: Date,
-    default: Date.now
+    default: ''
 },
- fine: Number,
+ fine: {
+    type: Number,
+    default: 0
+},
+
  booklist: [{
-    type: Schema.Types.ObjectId
-    ref: 'books'
-}]
+    type: Schema.Types.ObjectId,
+    ref: 'Books'
+}],
  createdAt: {
    type: Date,
    default: Date.now
